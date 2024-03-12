@@ -15,9 +15,12 @@ let phone = {
   9: "WXYZ",
 };
 const str = input[0].split("");
+let result = 0;
 
 for (let i = 0; i < str.length; i++) {
   for (let j = 2; j <= 9; j++) {
-    if (phone[j].split(""));
+    if (phone[j].includes(str[i])) result += j + 1;
   }
 }
+
+console.log(result);
