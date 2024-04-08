@@ -1,10 +1,12 @@
-const input = require("fs").readFileSync("input.txt").toString().trim();
-console.log(input);
-let i = 0;
+const input = +require("fs").readFileSync(0).toString().trim();
+let i = 1;
 let sum = 0;
 
-while (sum < input) {
-  i++;
+while (true) {
   sum += i;
+  if (input - sum < i + 1) {
+    break;
+  }
+  i++;
 }
-console.log(i - 1);
+console.log(i);
