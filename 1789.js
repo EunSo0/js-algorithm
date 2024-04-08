@@ -1,4 +1,4 @@
-const input = +require("fs").readFileSync(0).toString().trim();
+const input = +require("fs").readFileSync("input.txt").toString().trim();
 let i = 1;
 let sum = 0;
 
