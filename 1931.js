@@ -1,12 +1,7 @@
-const input = require("fs")
-  .readFileSync("input.txt")
-  .toString()
-  .trim()
-  .split("\n");
-
-const n = +input[0];
+const input = require("fs").readFileSync(0).toString().trim().split("\n");
+const n = +input.shift();
 const arr = [];
-for (let i = 1; i <= n; i += 1) {
+for (let i = 0; i < n; i += 1) {
   arr.push(input[i].split(" ").map(Number));
 }
 
@@ -21,9 +16,9 @@ arr.sort((a, b) => {
 let cur = 0;
 let cnt = 1;
 for (let i = 1; i < n; i += 1) {
-  if (arr[cur][1] <= arr[i][0]) {
+  if (arr[i][0] >= arr[cur][1]) {
     cur = i;
-    cnt += 1;
+    cnt++;
   }
 }
 console.log(cnt);
