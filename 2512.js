@@ -11,23 +11,21 @@ const arr = input[1]
   .sort((a, b) => a - b);
 const m = +input[2];
 
-// 이진탐색을 위한 시작점과 끝점 설정
 let start = 1;
-let end = arr.reduce((a, b) => Math.max(a, b));
-
+let end = arr[n - 1];
 let result = 0;
-while (start <= end) {
-  let mid = parseInt((start + end) / 2); // 현재의 중간점(상한액)
-  let total = 0; // 배정된 예산의 총액 계산
+
+while (start < end) {
+  let total = 0;
+  let mid = Math.floor((start + end) / 2);
+  console.log(mid);
   for (x of arr) {
-    total += Math.min(mid, x);
+    total += Math.min(x, mid);
   }
-  if (total <= m) {
-    // 상한액 증가
+  if (m >= total) {
     result = mid;
     start = mid + 1;
   } else {
-    // 상한액 감소
     end = mid - 1;
   }
 }
